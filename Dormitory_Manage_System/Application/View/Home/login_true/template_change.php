@@ -18,7 +18,7 @@
 <div class="" id="home">
     <nav class="navbar navbar-expand-xl">
         <div class="container h-100">
-            <a class="navbar-brand" href="../index.html">
+            <a class="navbar-brand" href="user_information.php">
                 <h1 class="tm-site-title mb-0">用户信息系统</h1>
             </a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -50,12 +50,15 @@
             </div>
         </div>
     </nav>
-    <div class="container" style="margin: 0 auto;">
+    <div class="container">
         <!-- row -->
-        <div class="centerBox" style="">
+        <div class="centerBox" style="text-align: center;">
 
             <br />
-            <form method="post" id="change_form" action="change_sql.php">
+<!--            信息更换表单-->
+            <h2>更换个人信息：</h2>
+            <br/>
+            <form method="post" id="change_form" action="user_change_sql.php">
                 <label>姓名：</label>
                 <input type="text" name="nameX">
                 <br />
@@ -100,3 +103,4 @@
     }
 </script>
 </html>
+

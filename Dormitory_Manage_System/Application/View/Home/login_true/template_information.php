@@ -17,7 +17,7 @@
 <div class="" id="home">
     <nav class="navbar navbar-expand-xl">
         <div class="container h-100">
-            <a class="navbar-brand" href="../index.html">
+            <a class="navbar-brand" href="user_information.php">
                 <h1 class="tm-site-title mb-0">用户信息系统</h1>
             </a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -49,14 +49,16 @@
             </div>
         </div>
     </nav>
-    <div class="container" style="">
+    <div class="container" style="text-align: center;">
         <div class="centerBox">
             <?php
                 if(!empty($_SESSION['users'])){
+                        // 用户信息表
+                        echo '<br>';
+                        echo '<h2>用户个人信息：</h2>';
                         $select_sql = 'select * from usersdetail where identify ='." '{$_SESSION['users']}'";
                         $result = mysqli_sql($select_sql);
                         if($result != false){
-                            echo '<br>';
                             echo "姓名：".$result[1];
                             echo '<br>';
                             echo "性别：".$result[2];
@@ -66,8 +68,26 @@
                             echo "电话：".$result[4];
                             echo '<br>';
                         }else{
-                            echo '<br>';
                             echo "<a href='template_change.php'>也许您还没有输入信息，请修改信息</a>";
+                        }
+                        echo "<b>---------------------------------------------------------------------------------</b>";
+                        // 用户住房表
+//                        -----------------------------------------------
+                        echo '<br>';
+                        echo '<h2>个人住房信息：</h2>';
+                        $select_sql_two = 'select * from housing where identify ='." '{$_SESSION['users']}'";
+                        $result_two = mysqli_sql($select_sql_two);
+                        if($result_two != false){
+                            echo "姓名：".$result_two[1];
+                            echo '<br>';
+                            echo "房号：".$result_two[2];
+                            echo '<br>';
+                            echo "租房/买房：";if($result_two[3] == 0){echo "租房";}else{echo '业主';};
+                            echo '<br>';
+                            echo "电话：".$result_two[4];
+                            echo '<br>';
+                        }else{
+                            echo "您还未入住本公寓";
                         }
                 }else{
                     header("location:skip.html");

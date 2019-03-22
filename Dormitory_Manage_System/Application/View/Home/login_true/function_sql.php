@@ -1,17 +1,9 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Administrator
- * Date: 2019/3/19
- * Time: 19:39
- */
-error_reporting(E_ALL ^ E_NOTICE);
-error_reporting(E_ALL ^ E_WARNING);
-error_reporting(0);
-/**
  *  封装一个sql操作的函数
  *  进行功能封装
  */
+
 include_once '../../Base/base.php';
 ?>
 <?php
@@ -37,5 +29,10 @@ include_once '../../Base/base.php';
         }else{
             return false;
         }
+    }
+    function mysqli_close_def(){
+        global $connect;
+        mysqli_close($connect);
+
     }
 ?>

@@ -1,8 +1,6 @@
-<?php  session_start();
-error_reporting(E_ALL ^ E_NOTICE);
-error_reporting(E_ALL ^ E_WARNING);
-error_reporting(0);?>
-
+<?php
+    include_once '../../Base/base.php';
+?>
 <?php
 if(isset($_SESSION['users'])){
     // 如果有session

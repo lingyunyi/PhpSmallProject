@@ -57,6 +57,8 @@ if(!empty($_POST["account"] || !empty($_POST["password"]))){
         if($row == null){
             //如果等于NULL就说明没有账号
             //这时候我们就根据他给的值，进行注册
+            $_POST["account"]=mysqli_real_escape_string($connect,$_POST["account"]);
+            $_POST["password"]=mysqli_real_escape_string($connect,$_POST["password"]);
             $register_sql = "insert into users(identify,passwd) values (" . "'{$_POST["account"]}',"."'{$_POST["password"]}'".")";
             mysqli_query($connect,$register_sql);
             if(mysqli_affected_rows($connect) == 1){
