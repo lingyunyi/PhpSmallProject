@@ -9,6 +9,7 @@
  */
 
 if(!empty($_SESSION['users'] && !empty($_POST))){
+    // 进行mysqli的转义
     $_POST["nameX"]=mysqli_real_escape_string($connect,$_POST["nameX"]);
     $_POST["houseIDX"]=mysqli_real_escape_string($connect,$_POST["houseIDX"]);
     $_POST["iphoneX"]=mysqli_real_escape_string($connect,$_POST["iphoneX"]);
@@ -20,6 +21,7 @@ if(!empty($_SESSION['users'] && !empty($_POST))){
         $echo_information = "添加成功......";
         header('location:user_repair.php?information='."$echo_information");
     }else{
+        $echo_information = "请重试......";
         mysqli_rollback();
         //释放一次结果集
         header('location:user_repair.php?information='."$echo_information");

@@ -94,7 +94,7 @@
                     echo '<b>-------------------------------------------------------------------------------------</b>';
                     echo '<br>';
                     echo '<h2>报修状态：</h2>';
-                    $select_sql_repair = 'select * from repair where identify ='." '{$_SESSION['users']}'";
+                    $select_sql_repair = 'select * from repair where identify ='." '{$_SESSION['users']}' ORDER BY id DESC LIMIT 8";
                     global $connect;
                     if($result=mysqli_query($connect,$select_sql_repair)){
                         //这里代表有数据
