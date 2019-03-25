@@ -10,7 +10,7 @@
 ?>
 <?php
 $echo_information = "等待提交......";
-if(!empty($_SESSION['users'] && !empty($_POST))){
+if(!empty($_SESSION['users']) && !empty($_POST)){
     //  判断数据库中是否有数据，如果有就更新，没有就添加
     $select_sql = 'select * from usersdetail where identify ='." '{$_SESSION['users']}'";
     $result = mysqli_sql($select_sql);
