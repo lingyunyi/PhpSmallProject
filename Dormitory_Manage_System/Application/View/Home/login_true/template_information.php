@@ -69,6 +69,7 @@
                             echo '<br>';
                         }else{
                             echo "<a href='template_change.php'>也许您还没有输入信息，请修改信息</a>";
+                            echo "<br />";
                         }
                         echo "<b>---------------------------------------------------------------------------------</b>";
                         // 用户住房表
@@ -88,6 +89,7 @@
                             echo '<br>';
                         }else{
                             echo "您还未入住本公寓";
+                            echo "<br />";
                         }
                 }else{
                     header("location:skip.html");
