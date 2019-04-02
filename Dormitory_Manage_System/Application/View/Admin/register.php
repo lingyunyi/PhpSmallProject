@@ -18,11 +18,7 @@
         在跳转之前得输出，echo “登入失败、账号密码不正确的界面”
 
  */
-?>
-<?php session_start();/*                                                                           */
-error_reporting(E_ALL ^ E_NOTICE);
-error_reporting(E_ALL ^ E_WARNING);
-error_reporting(0);
+    include_once '../Base/base.php';
 ?>
 
 <?php
@@ -43,6 +39,7 @@ if(!empty($_POST["account"] || !empty($_POST["password"]))){
     $password ="root";//密码
     $database ="dormitorysys";//数据库名
     $connect = mysqli_connect($host,$root,$password,$database);//连接数据库
+    mysqli_set_charset($connect,"utf8");
     $select_sql = "select * from admins where identify = "."'{$_POST["account"]}'";
     // 数据库是否连接成功
     if(!$connect){
@@ -60,12 +57,14 @@ if(!empty($_POST["account"] || !empty($_POST["password"]))){
         if($row == null){
             //如果等于NULL就说明没有账号
             //这时候我们就根据他给的值，进行注册
+            $_POST["account"]=mysqli_real_escape_string($connect,$_POST["account"]);
+            $_POST["password"]=mysqli_real_escape_string($connect,$_POST["password"]);
             $register_sql = "insert into admins(identify,passwd) values (" . "'{$_POST["account"]}',"."'{$_POST["password"]}'".")";
             mysqli_query($connect,$register_sql);
             if(mysqli_affected_rows($connect) == 1){
                 //如果影响成功
                 $_SESSION["users"] = $_POST["account"];
-                header("location:./login_true/user_in.php");
+                header("location:./login_true/user_IO.php");
                 return true;
             }else{
                 //如果错误先回滚

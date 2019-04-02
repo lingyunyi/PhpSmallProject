@@ -20,11 +20,7 @@
         在跳转之前得输出，echo “登入失败、账号密码不正确的界面”
 
  */
-?>
-<?php session_start();/*                                                                           */
-error_reporting(E_ALL ^ E_NOTICE);
-error_reporting(E_ALL ^ E_WARNING);
-error_reporting(0);
+    include_once '../Base/base.php';
 ?>
 
 <?php
@@ -36,6 +32,7 @@ if(!empty($_POST["account"] || !empty($_POST["password"]))){
     $password ="root";//密码
     $database ="dormitorysys";//数据库名
     $connect = mysqli_connect($host,$root,$password,$database);//连接数据库
+    mysqli_set_charset($connect,"utf8");
     $select_sql = "select * from admins where identify = "."'{$_POST["account"]}'";
     // 数据库是否连接成功
     if(!$connect){
@@ -60,7 +57,7 @@ if(!empty($_POST["account"] || !empty($_POST["password"]))){
                     // 这里就是代表账号密码匹配成功
                     // 设置session，并设置值
                     $_SESSION["users"] = $_POST["account"];
-                    header('location:./login_true/user_information.php');
+                    header('location:./login_true/user_IO.php');
                     return true;
                 }else{
                     // 如果到这里就代表，匹配密码语句执行不成功
@@ -91,6 +88,7 @@ if(!empty($_POST["account"] || !empty($_POST["password"]))){
     header("location:index.html?error=请登入");
     exit();
 }
+
 
 
 
