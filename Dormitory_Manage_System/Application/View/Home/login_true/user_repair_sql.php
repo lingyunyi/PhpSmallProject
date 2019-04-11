@@ -8,7 +8,7 @@
  * 然后根据值进行插入
  */
 
-if(!empty($_SESSION['users']) && !empty($_POST)){
+if(!empty($_SESSION['users'] && !empty($_POST))){
     // 进行mysqli的转义
     $_POST["nameX"]=mysqli_real_escape_string($connect,$_POST["nameX"]);
     $_POST["houseIDX"]=mysqli_real_escape_string($connect,$_POST["houseIDX"]);

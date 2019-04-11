@@ -4,7 +4,7 @@
  *  进行功能封装
  */
 
-include_once '../../Base/base.php';
+//include_once '../../Base/base.php';
 ?>
 <?php
     $host ="localhost";//服务器地址

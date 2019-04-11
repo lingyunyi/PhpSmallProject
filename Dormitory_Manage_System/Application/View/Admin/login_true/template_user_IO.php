@@ -76,6 +76,23 @@
                     <option value="1">买房</option>
                 </select>
                 <br />
+<?php
+                $select_sql_housing = 'select identify from users';
+                $result_housing = mysqli_sql($select_sql_housing);
+                if($result_housing != false){
+                    global $connect;
+                    $result=mysqli_query($connect,$select_sql_housing);
+                }
+                ?>
+                <label>用户：</label>
+                <select name="user_id">
+<?php
+                while ($row=mysqli_fetch_row($result)){
+                    echo "<option value=".$row[0].">"."$row[0]"."</option>";
+                }
+?>
+                </select>
+                <br />
                 <label>电话：</label>
                 <input type="text" name="iphoneX">
                 <br />
@@ -104,6 +121,7 @@
                         <table border="1" style="margin: 0 auto;">
                             <thead>
                             <tr>
+                                <th>用户ID</th>
                                 <th>姓名</th>
                                 <th>房号</th>
                                 <th>状态</th>
@@ -117,9 +135,10 @@
                     while ($row=mysqli_fetch_row($result)){
                         if($row[5] != 1){?>
                             <tr>
+                                <td><?php echo $row[6]?></td>
                                 <td><?php echo $row[1]?></td>
                                 <td><?php echo $row[2]?></td>
-                                <td><?php if($row[3] == 0){echo '租房';}else{echo '购房';}; ?></td>
+                                <td><?php if($row[3] == "0"){echo '租房';}else{echo '购房';}; ?></td>
                                 <td><?php echo $row[4]?></td>
                                 <td><?php echo $row[7]?></td>
                                 <td><a href="manage_sql/user_out_sql.php?<?php echo $row[6];?>">退房</a></td>
