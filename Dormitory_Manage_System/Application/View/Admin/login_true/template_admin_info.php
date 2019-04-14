@@ -59,7 +59,54 @@ require 'function_sql.php';
         </div>
     </nav>
     <div class="container">
-        <!-- row -->
+        <div class="tow">
+            <!-- row -->
+            <div class="centerBox" style="text-align: center;">
+<?php
+                echo '<br>';
+                echo '<h2>用户个人信息：</h2>';
+                $select_sql = 'select * from adminsdetail where identify ='." '{$_SESSION['users']}'";
+                $result = mysqli_sql($select_sql);
+                if($result != false){
+                echo "姓名：".$result[1];
+                echo '<br>';
+                echo "性别：".$result[2];
+                echo '<br>';
+                echo "地址：".$result[3];
+                echo '<br>';
+                echo "电话：".$result[4];
+                echo '<br>';
+                }else{
+                echo "<a>也许您还没有输入信息，请修改信息</a>";
+                echo '<br/>';
+                }?>
+
+                <br />
+                <!--            信息更换表单-->
+                <h2>更换个人信息：</h2>
+                <br/>
+                <form method="post" id="change_form" action="manage_sql/admin_change_sql.php">
+                    <label>姓名：</label>
+                    <input type="text" name="nameX">
+                    <br />
+                    <label>性别：</label>
+                    <select name="sexX">
+                        <option value="男" selected>男</option>
+                        <option value="女">女</option>
+                    </select>
+                    <br />
+                    <label>地址：</label>
+                    <input type="text" name="addressX">
+                    <br />
+                    <label>电话：</label>
+                    <input type="text" name="iphoneX">
+                    <br />
+                    <button  id="submit_button" onclick="return Cmd('change_form');">提交</button>
+                    <br />
+                    <b><?php echo $_GET['information'];?></b>
+                </form>
+            </div>
+        </div>
     </div>
     <footer class="tm-footer row tm-mt-small">
         <div class="col-12 font-weight-light">

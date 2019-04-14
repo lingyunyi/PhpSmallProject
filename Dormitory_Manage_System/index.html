@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>公寓管理系统</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            background-color: #2f9bb3;
+        }
+        .Box{
+            width: 300px;
+            height: 300px;
+            background-color: palegreen;
+        }
+        .leftBox{
+            float: left;
+            margin: 25% 0;
+            text-align: center;
+        }
+        .rightBox{
+            float: right;
+            margin: 25% 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="leftBox Box" id="left_box">
+        <span>用户登入入口</span>
+    </div>
+    <div class="rightBox Box" id="right_box">
+        <span>管理登入入口</span>
+    </div>
+</body>
+<script type="text/javascript">
+left_box = document.getElementById('left_box');
+right_box = document.getElementById('right_box');
+left_box.addEventListener('click',function(){
+    window.location.href = "http://www.baidu.com/";
+});
+right_box.addEventListener('click',function(){
+    window.location.href = "http://www.baidu.com/";
+});
+</script>
+</html>

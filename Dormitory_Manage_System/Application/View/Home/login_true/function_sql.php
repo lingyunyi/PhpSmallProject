@@ -30,9 +30,4 @@ include_once '../../Base/base.php';
             return false;
         }
     }
-    function mysqli_close_def(){
-        global $connect;
-        mysqli_close($connect);
-
-    }
 ?>

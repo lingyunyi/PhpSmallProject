@@ -76,6 +76,7 @@ require 'function_sql.php';
                         <table border="1" style="margin: 0 auto;">
                             <thead>
                             <tr>
+                                <th>序号</th>
                                 <th>用户ID</th>
                                 <th>姓名</th>
                                 <th>房号</th>
@@ -91,6 +92,7 @@ require 'function_sql.php';
                             while ($row=mysqli_fetch_row($result)){
                                 if($row[6] != 1){?>
                                     <tr>
+                                        <td><?php echo $row[0]?></td>
                                         <td><?php echo $row[7]?></td>
                                         <td><?php echo $row[1]?></td>
                                         <td><?php echo $row[2]?></td>
@@ -98,7 +100,7 @@ require 'function_sql.php';
                                         <td><?php echo $row[3]?></td>
                                         <td><?php echo $row[4]?></td>
                                         <td><?php echo $row[8]?></td>
-                                        <td style="text-align: center"><a href="manage_sql/admin_repair_sql.php?user_id=<?php echo $row[6];?>">报修</a></td>
+                                        <td style="text-align: center"><a href="manage_sql/admin_repair_sql.php?table_id=<?php echo $row[0];?>">报修</a></td>
                                     </tr>
                                 <?php }else{}
                             };?>

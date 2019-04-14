@@ -1,12 +1,5 @@
 <?php
-/**
- * 首先，我们先接收从前端传入的数据。
- * 然后对数据进行转义
- * 然后对数据库进行执行操作
- * 然后判断影响
- * 如果影响等于一，回归
- * 小于一，回弹。
- */
+
     session_start();
     require '../function_sql.php';
 if(!empty($_SESSION['users']) && !empty($_GET)) {
