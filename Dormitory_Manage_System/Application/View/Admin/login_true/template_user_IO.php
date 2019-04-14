@@ -141,7 +141,7 @@
                                 <td><?php if($row[3] == "0"){echo '租房';}else{echo '购房';}; ?></td>
                                 <td><?php echo $row[4]?></td>
                                 <td><?php echo $row[7]?></td>
-                                <td><a href="manage_sql/user_out_sql.php?<?php echo $row[6];?>">退房</a></td>
+                                <td><a href="manage_sql/user_out_sql.php?user_id=<?php echo $row[6];?>">退房</a></td>
                             </tr>
                         <?php }else{}
                     };?>

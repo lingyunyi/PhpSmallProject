@@ -32,12 +32,12 @@ require 'function_sql.php';
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto h-100">
                     <li class="nav-item">
-                        <a class="nav-link active" href="user_IO.php">
+                        <a class="nav-link" href="user_IO.php">
                             用户管理
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="admin_info.php" >
+                        <a class="nav-link active" href="admin_info.php" >
                             信息管理
                         </a>
                     </li>

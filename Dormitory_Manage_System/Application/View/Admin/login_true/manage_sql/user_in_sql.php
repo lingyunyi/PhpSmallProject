@@ -1,9 +1,6 @@
 <?php
 // 导入function sql。php
 session_start();
-//error_reporting(E_ALL ^ E_NOTICE);
-//error_reporting(E_ALL ^ E_WARNING);
-//error_reporting(0);
 require '../function_sql.php';
 /**
  * 1)简单理一下思路，首先我们链接数据库
@@ -14,14 +11,15 @@ require '../function_sql.php';
  * 6)判断是否存在
  * 7)如果有的话，那么返回用户已入住的信息
  */
-if(!empty($_SESSION['users'] && !empty($_POST))) {
+if(!empty($_SESSION['users']) && !empty($_POST)) {
     //  判断数据库中是否有数据，如果有就更新，没有就添加
     $select_sql = 'select * from housing where identify =' . " '{$_POST['user_id']}'";
     $result = mysqli_sql($select_sql);
+    // 导入connect，函数
+    global $connect;
     if ($result != false) {
+        $result=mysqli_query($connect,$select_sql);
         while ($row=mysqli_fetch_row($result)){
-            echo $row[5];
-            var_dump($row[5]);
             if($row[5] == 0){
                 // 证明已经存在住房记录，不可以插入。
                 $echo_information = "存在重复的信息，用户未退房......";
@@ -29,7 +27,6 @@ if(!empty($_SESSION['users'] && !empty($_POST))) {
                 exit();
             }
         }
-        exit();
         // 到这里代表没有，已存在的住房记录。
         // 防止SQL注入，进行数据转义
         $_POST["nameX"] = mysqli_real_escape_string($connect, $_POST["nameX"]);
@@ -43,7 +40,6 @@ if(!empty($_SESSION['users'] && !empty($_POST))) {
         $insert =  "insert into housing(nameX,houseIDX,stateX,iphoneX,is_Del,identify,timenow) values (" . "'{$_POST["nameX"]}',"."'{$_POST["houseIDX"]}',"."'{$_POST["stateX"]}',"."'{$_POST["iphoneX"]}',"."0,"."'{$_POST['user_id']}',now()".")";
         mysqli_sql($insert);
         if(mysqli_affected_rows($connect) == 1){
-            mysqli_free_result($result);
             $echo_information = "添加成功......";
             header('location:../user_IO.php?information='."$echo_information");
         }else{

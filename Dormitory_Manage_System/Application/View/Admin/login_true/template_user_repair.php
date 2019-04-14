@@ -32,7 +32,7 @@ require 'function_sql.php';
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto h-100">
                     <li class="nav-item">
-                        <a class="nav-link active" href="user_IO.php">
+                        <a class="nav-link" href="user_IO.php">
                             用户管理
                         </a>
                     </li>
@@ -42,7 +42,7 @@ require 'function_sql.php';
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="user_repair.php">
+                        <a class="nav-link active" href="user_repair.php">
                             报修管理
                         </a>
                     </li>
