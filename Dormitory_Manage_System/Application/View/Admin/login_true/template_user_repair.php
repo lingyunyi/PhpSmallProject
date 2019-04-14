@@ -59,7 +59,66 @@ require 'function_sql.php';
         </div>
     </nav>
     <div class="container">
-        <!-- row -->
+        <div class="user_out">
+            <?php
+            if(!empty($_SESSION['users'])){
+                //  session 不为空的情况下
+                echo '<br>';
+                echo '<h2>用户保修系统：</h2>';
+                echo '<br>';
+                $select_sql_housing = 'select * from repair';
+                $result_housing = mysqli_sql($select_sql_housing);
+                if($result_housing != false){
+                    global $connect;
+                    $result=mysqli_query($connect,$select_sql_housing);
+                    ?>
+                    <div id="table_information">
+                        <table border="1" style="margin: 0 auto;">
+                            <thead>
+                            <tr>
+                                <th>用户ID</th>
+                                <th>姓名</th>
+                                <th>房号</th>
+                                <th>租房/购房</th>
+                                <th>电话</th>
+                                <th>报修问题</th>
+                                <th>报修时间</th>
+                                <th>是否维修</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                            while ($row=mysqli_fetch_row($result)){
+                                if($row[6] != 1){?>
+                                    <tr>
+                                        <td><?php echo $row[7]?></td>
+                                        <td><?php echo $row[1]?></td>
+                                        <td><?php echo $row[2]?></td>
+                                        <td><?php if($row[5] == "0"){echo '租房';}else{echo '购房';}; ?></td>
+                                        <td><?php echo $row[3]?></td>
+                                        <td><?php echo $row[4]?></td>
+                                        <td><?php echo $row[8]?></td>
+                                        <td style="text-align: center"><a href="manage_sql/admin_repair_sql.php?user_id=<?php echo $row[6];?>">报修</a></td>
+                                    </tr>
+                                <?php }else{}
+                            };?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <?php
+                }else{
+                    //  if($result_housing != false)
+                    //  这里代表没有数值
+                    echo '未有人入住，还需要努力......';
+                }
+            }else{
+                //  SESSION为空的情况下
+                // if(!empty($_SESSION['users'])){
+                header("location:skip.html");
+                exit();
+            }
+            ?>
+        </div>
     </div>
     <footer class="tm-footer row tm-mt-small">
         <div class="col-12 font-weight-light">
