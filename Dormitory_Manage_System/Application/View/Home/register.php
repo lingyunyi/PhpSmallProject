@@ -34,7 +34,7 @@ if(isset($_SESSION["users"])){
 // 首先判断从POST请求中的值
 if(!empty($_POST["account"]) || !empty($_POST["password"])){
     // 如果值不为空，就得判断是否存在，数据库中，account账号
-    $host ="localhost";//服务器地址
+    $host ="47.107.57.166";//服务器地址
     $root ="root";//用户名
     $password ="root";//密码
     $database ="dormitorysys";//数据库名

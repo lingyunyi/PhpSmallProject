@@ -7,7 +7,7 @@
 //include_once '../../Base/base.php';
 ?>
 <?php
-    $host ="localhost";//服务器地址
+    $host ="47.107.57.166";//服务器地址
     $root ="root";//用户名
     $password ="root";//密码
     $database ="dormitorysys";//数据库名
