@@ -111,7 +111,7 @@ require 'function_sql.php';
                 }else{
                     //  if($result_housing != false)
                     //  这里代表没有数值
-                    echo '未有人入住，还需要努力......';
+                    echo '没有人报修，恭喜你这个管理员十分的负责......';
                 }
             }else{
                 //  SESSION为空的情况下
