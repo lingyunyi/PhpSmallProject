@@ -96,9 +96,6 @@
                 <label>电话：</label>
                 <input type="text" name="iphoneX">
                 <br />
-                <label>地址：</label>
-                <input type="text" name="addressX">
-                <br />
                 <button  id="submit_button" onclick="return Cmd('change_form');">提交</button>
                 <br />
             </form>

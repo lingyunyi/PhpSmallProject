@@ -34,7 +34,6 @@ if(!empty($_SESSION['users']) && !empty($_POST)) {
         $_POST["stateX"] = mysqli_real_escape_string($connect, $_POST["stateX"]);
         $_POST["stateX"] = (int)$_POST["stateX"];
         $_POST["iphoneX"] = mysqli_real_escape_string($connect, $_POST["iphoneX"]);
-        $_POST["addressX"] = mysqli_real_escape_string($connect, $_POST["addressX"]);
         $_POST["user_id"] = mysqli_real_escape_string($connect, $_POST["user_id"]);
         // 写一个插入数据库的sql语句
         $insert =  "insert into housing(nameX,houseIDX,stateX,iphoneX,is_Del,identify,timenow) values (" . "'{$_POST["nameX"]}',"."'{$_POST["houseIDX"]}',"."'{$_POST["stateX"]}',"."'{$_POST["iphoneX"]}',"."0,"."'{$_POST['user_id']}',now()".")";
@@ -55,7 +54,6 @@ if(!empty($_SESSION['users']) && !empty($_POST)) {
         $_POST["stateX"] = mysqli_real_escape_string($connect, $_POST["stateX"]);
         $_POST["stateX"] = (int)$_POST["stateX"];
         $_POST["iphoneX"] = mysqli_real_escape_string($connect, $_POST["iphoneX"]);
-        $_POST["addressX"] = mysqli_real_escape_string($connect, $_POST["addressX"]);
         $_POST["user_id"] = mysqli_real_escape_string($connect, $_POST["user_id"]);
         // 写一个插入数据库的sql语句
         $insert =  "insert into housing(nameX,houseIDX,stateX,iphoneX,is_Del,identify,timenow) values (" . "'{$_POST["nameX"]}',"."'{$_POST["houseIDX"]}',"."'{$_POST["stateX"]}',"."'{$_POST["iphoneX"]}',"."0,"."'{$_POST['user_id']}',now()".")";
