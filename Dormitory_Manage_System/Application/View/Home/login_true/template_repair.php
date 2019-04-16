@@ -59,9 +59,15 @@
                 echo '<br>';
                 echo '<h2>用户住房信息：</h2>';
                 // 这里查询的是用户租房表
-                $select_sql_housing = 'select * from housing where identify ='." '{$_SESSION['users']}'";
+                $select_sql_housing = 'select * from housing where identify ='." '{$_SESSION['users']}' and is_Del != 1";
                 $result_housing = mysqli_sql($select_sql_housing);
-                if($result_housing != false && $result_housing[5] != 1){
+//                var_dump($result_housing);
+//                echo "<br />";
+//                var_dump($result_housing != false);
+//                echo "<br />";
+//                var_dump($result_housing[5] != "1");
+//                exit();
+                if($result_housing != false && $result_housing[5] != "1"){
                     echo "姓名：".$result_housing[1];
                     echo '<br>';
                     echo "房号：".$result_housing[2];
