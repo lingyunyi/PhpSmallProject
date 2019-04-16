@@ -67,7 +67,7 @@
 //                echo "<br />";
 //                var_dump($result_housing[5] != "1");
 //                exit();
-                if($result_housing != false && $result_housing[5] != "1"){
+                if($result_housing != false && $result_housing[5] != 1){
                     echo "姓名：".$result_housing[1];
                     echo '<br>';
                     echo "房号：".$result_housing[2];
@@ -125,7 +125,7 @@
                                 <td><?php echo $row[2]?></td>
                                 <td><?php echo $row[3]?></td>
                                 <td><?php echo $row[4]?></td>
-                                <td><?php if($row[5] == 0){echo '待维修';}else{echo '已维修';}; ?></td>
+                                <td><?php if($row[6] == 0){echo '待维修';}else{echo '已维修';}; ?></td>
                                 <td><?php echo $row[8]?></td>
                             </tr>
                             <?php

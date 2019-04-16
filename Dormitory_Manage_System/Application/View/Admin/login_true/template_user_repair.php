@@ -96,7 +96,7 @@ require 'function_sql.php';
                                         <td><?php echo $row[7]?></td>
                                         <td><?php echo $row[1]?></td>
                                         <td><?php echo $row[2]?></td>
-                                        <td><?php if($row[5] == "0"){echo '租房';}else{echo '购房';}; ?></td>
+                                        <td><?php if($row[5] == 0){echo '租房';}else{echo '购房';}; ?></td>
                                         <td><?php echo $row[3]?></td>
                                         <td><?php echo $row[4]?></td>
                                         <td><?php echo $row[8]?></td>
