@@ -76,7 +76,7 @@
 //                        -----------------------------------------------
                         echo '<br>';
                         echo '<h2>个人住房信息：</h2>';
-                        $select_sql_two = 'select * from housing where identify ='." '{$_SESSION['users']}'";
+                        $select_sql_two = 'select * from housing where identify ='." '{$_SESSION['users']}' and ID =  (select MAX(ID) from housing) ";
                         $result_two = mysqli_sql($select_sql_two);
                         if($result_two != false){
                             echo "姓名：".$result_two[1];
