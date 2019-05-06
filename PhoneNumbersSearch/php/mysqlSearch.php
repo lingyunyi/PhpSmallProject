@@ -8,6 +8,6 @@
 $input=$_POST['searchInput'];
 $sql = "select * from phonedata where Name='$input' or Phone='$input'";
 $result = mysqli_query($connect,$sql);
-$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+$row = mysqli_fetch_row($result);
 
 ?>
