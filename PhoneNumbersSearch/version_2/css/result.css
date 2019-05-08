@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #2f9bb3;
+}
+    .mainBox{
+        height: 800px;
+        width: 1000px;
+        margin: 0 auto;
+
+    }
+        .centerBox{
+            width: 500px;
+            height: 400px;
+            margin:0 auto;
+            position: relative;
+            top: 25%;
+            text-align: center;
+        }
+            form p{
+                padding: 10px 0;
+            }
+                #whoName{
+                    font-family: "Poor Richard";
+                    color: #18ffb5;
+                }
+                #phoneOne{
+                    width: 338px;
+                    height: 40px;
+                    text-align: center;
+                    border:2px solid;
+                    border-radius: 15px;
+                    font-size: 20px;
+                    background-color: #e6e5b6;
+                }
+
+                #phoneTwo{
+                    width: 338px;
+                    height: 40px;
+                    text-align: center;
+                    border:2px solid;
+                    border-radius: 15px;
+                    font-size: 20px;
+                    background-color: #e6e5b6;
+                }

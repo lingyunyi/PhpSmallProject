@@ -1,0 +1,62 @@
+mysqli_num_rows($result)
+    -- 可以查询，返回的结果集中的所有行数
+
+php-foreach
+    foreach(array as var)
+    {
+        var 为自定义函数，方便调用
+    }
+
+    或者
+
+    foreach(array as $k => $v)
+    {
+        对于一些其他的关联数组来说，
+        可以这样取值。
+    }
+
+问题1：
+    mysqli_fetch_row($result)
+    的结果集有两行。
+    为什么遍历的结果只有一行。
+    换句话说为什么只有一条数据。
+    在数据库执行中却有两条数据。
+
+mysqli_data_seek()
+    调整结果指针到结果集中的一个任意行。
+
+    if ($result=mysqli_query($con,$sql))
+    {
+        //查找行号为 3 的数据
+        mysqli_data_seek($result,2);
+
+        // 读取数据
+        $row=mysqli_fetch_row($result);
+
+        printf ("name: %s url: %sn", $row[0], $row[1]);
+
+        // 释放结果集
+        mysqli_free_result($result);
+    }
+
+    mysqli_close($con);
+
+这时候我找到了一个似乎能解决我所遇到的问题的问题。
+
+mysqli_data_seek()
+    - 类似将指针移至任何地方
+    - 取结果集中的任意一行数据
+
+    - 当结果集的下一指针没有值时，返回NULL
+
+这样就可以取下一行数据。
+
+不过在对结果集操作之后，处理结果集的函数需要在执行一次才能获取下一指针的结果。
+     var_dump($data[0],"</br >");
+     mysqli_data_seek($result,1);
+     $data = mysqli_fetch_row($result);
+     var_dump($data[0],"</br >");
+
+
+$row = &$data;
+    - &  为按引用传递

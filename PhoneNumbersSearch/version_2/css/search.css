@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #2f9bb3;
+}
+    .mainBox{
+        height: 800px;
+        width: 1000px;
+        margin: 0 auto;
+    }
+
+        .centerBox{
+            width: 800px;
+            margin:0 auto;
+            position: relative;
+        }
+            #searchFrom{
+                text-align: center;
+            }
+                #titleFont{
+                    display: block;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    padding-right: 70px;
+                    color: #18ffb5;
+                }
+                    .searchBox{
+                        display: inline-block;
+                    }
+                    #searchInput{
+                        width: 500px;
+                        height: 40px;
+                        border:2px solid;
+                        border-radius: 15px;
+                        text-align: left;
+                        font-size: 20px;
+                        padding: 0 20px;
+                        text-indent: 20px;
+                        background-color: #e6e5b6;
+
+                    }
+                    #searchButton{
+                        width: 100px;
+                        height: 42px;
+                        border-radius: 15px;
+                        border: 2px solid;
+                        font-size: 20px;
+                        background-color: #e6e49e;
+                    }
