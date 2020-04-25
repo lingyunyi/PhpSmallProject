@@ -15,11 +15,11 @@
 </head>
 <body>
 
-<?// error_reporting(E_ERROR);
-//ini_set("display_errors","Off");?>
+<? error_reporting(0);
+ini_set("display_errors", "Off"); ?>
 
-
-<?
+<?php
+$strr = ["wait","wait"];
 require_once "tools.php"
 ?>
 
