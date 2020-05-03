@@ -17,10 +17,10 @@
 <body>
 
 <?php
-$servername = "127.0.0.1";
-$username = "root";
-$password = "root";
-$dbname = "test";
+$servername = "103.66.217.35";
+$username = "a0314161734";
+$password = "31467349";
+$dbname = "a0314161734";
 
 // 创建连接
 $conn = new mysqli($servername, $username, $password,$dbname);
@@ -35,7 +35,7 @@ if ($conn->connect_error) {
 ?>
 
 
-
+<script type="text/javascript" src="http://www.jq22.com/demo/clipboard.js-master201703170013/dist/clipboard.min.js"></script>
 <div class="panel panel-default" style="text-align: center">
     <div class="panel-heading" >点击复制</div>
     <div class="panel-body">
@@ -60,14 +60,24 @@ if ($conn->connect_error) {
 </body>
 <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
 <script>
+
+    function copyTextS(text, callback){ // text: 要复制的内容， callback: 回调
+        var tag = document.createElement('input');
+        tag.setAttribute('id', 'cp_hgz_input');
+        tag.value = text;
+        document.getElementsByTagName('body')[0].appendChild(tag);
+        document.getElementById('cp_hgz_input').select();
+        document.execCommand('copy');
+        document.getElementById('cp_hgz_input').remove();
+        if(callback) {callback(text)}
+    }
+
     function copyText(ths) {
         console.log(ths)
-        var inp = $(ths).prev()[0]
-        $(inp).select(); // 选中文本
-        console.log(inp);
-        document.execCommand("copy"); // 执行浏览器复制命令
+        var inp = $(ths).prev()[0];
+        copyTextS($(inp).attr("value"), function (){console.log('复制成功')})
+        document.execCommand("Copy");  // 执行浏览器复制命令
         alert("复制成功，请复制内容："+$(inp).attr("value"));
-
         $.ajax({
             url: 'delete_cdk.php?cdk_id='+$(inp).val(),
             type: "GET",
