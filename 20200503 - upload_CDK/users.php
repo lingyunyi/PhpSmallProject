@@ -37,7 +37,7 @@ if ($conn->connect_error) {
 
 <script type="text/javascript" src="http://www.jq22.com/demo/clipboard.js-master201703170013/dist/clipboard.min.js"></script>
 <div class="panel panel-default" style="text-align: center">
-    <div class="panel-heading" >点击复制</div>
+    <div class="panel-heading navbar-fixed-top" ><b>好省牛先生独家团队5月份福利</b></div>
     <div class="panel-body">
         <input style="display: none" value="">
         <div class="list-group">
@@ -48,12 +48,12 @@ if ($conn->connect_error) {
             // 这里的 变量result 只是结果集，并不能直接用来展示，类似一个对象指针一般。
             while ($row = mysqli_fetch_row($result)) {
                 echo '<input style="display: none" value='.$row[1].'>';
-                echo '<button type="button" class="list-group-item" onclick="return copyText(this);" value='.$row[1].'?>'.$row[1].'</button>';
+                echo '<button type="button" class="list-group-item" onclick="return copyText(this);" value='.$row[1].'?>'.$row[1].'<span class="badge">点击复制</span></button>';
             };
             ?>
         </div>
     </div>
-    <div class="panel-footer"><b>好生牛先生独家团队5月份福利</b></div>
+    <div class="panel-footer navbar-fixed-bottom" ><b>好省牛先生独家团队5月份福利</b></div>
 
 </div>
 
