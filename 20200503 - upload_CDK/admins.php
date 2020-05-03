@@ -62,7 +62,7 @@ $rowCount1 = $rows1[0];
     function send() {
         $.ajax({
             url: 'updata_cdk.php',
-            type: "GET",
+            type: "POST",
             data: {
                 "cdk_id":$("#cdk_id").val(),
             },

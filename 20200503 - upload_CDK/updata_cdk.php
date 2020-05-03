@@ -15,25 +15,31 @@ if ($conn->connect_error) {
 }
 
 
-var_dump($_GET["cdk_id"]);
-var_dump(!empty($_GET["cdk_id"]));
-if (!empty($_GET["cdk_id"])) {
-    var_dump($_GET["cdk_id"]);
-    $sql = "INSERT INTO cdk (cdk_id) VALUE (" . "'{$_GET["cdk_id"]}'". ")";
-    echo $sql;
-    $con = mysqli_query($conn, $sql);
-    var_dump($con);
-    if (mysqli_affected_rows($conn) == 1) {
-        //如果影响成功
-        var_dump("成功");
-    } else {
-        //如果错误先回滚
-        mysqli_rollback($conn);
-        //最终关闭数据库
-        mysqli_close($conn);
-        // 结束指令
-        return false;
+var_dump($_POST["cdk_id"]);
+var_dump(!empty($_POST["cdk_id"]));
+
+if (!empty($_POST["cdk_id"])) {
+    $str = $_POST["cdk_id"];
+    $arr = explode(" ",$str);
+    var_dump($arr);
+    foreach ($arr as $value) {
+        $sql = "INSERT INTO cdk (cdk_id) VALUE (" . "'{$value}'". ")";
+        echo $sql;
+        $con = mysqli_query($conn, $sql);
+        var_dump($con);
+        if (mysqli_affected_rows($conn) == 1) {
+            //如果影响成功
+            var_dump("成功");
+        } else {
+            //如果错误先回滚
+            mysqli_rollback($conn);
+            //最终关闭数据库
+            mysqli_close($conn);
+            // 结束指令
+            return false;
+        }
     }
+
 }
 $conn->close();
 return "ok"
